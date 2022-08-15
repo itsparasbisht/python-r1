@@ -1,3 +1,6 @@
+import json
+
+
 resources = {"water": 2000, "milk": 650, "coffee": 450, "money": 15.5}
 
 
@@ -91,13 +94,14 @@ def process_transaction(change, amount_rounded, beverage):
         resources["money"] = resources["money"] - change
         print(f"\nHere is ${change} dollars in change.")
         print(f"Enjoy your {user_choice}. ☕☕☕")
+    print("-------------------------------------------------")
 
 
 while True:
     user_choice = input("\nWhat would you like? (espresso/latte/cappuccino):\n")
 
     if user_choice == "report":
-        print(resources)
+        print(json.dumps(resources, indent=4))
 
     if user_choice == "off":
         print("Machine turned off")
